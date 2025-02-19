@@ -8,7 +8,7 @@
     <script defer src="script.js"></script>
 </head>
     <style>
-        body {
+       body {
     background: radial-gradient(circle, #1a1a2e, #16213e);
     color: white;
     font-family: Arial, sans-serif;
@@ -26,14 +26,28 @@ header {
     box-shadow: 0 0 10px cyan;
 }
 
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: float 3s ease-in-out infinite;
+}
+
 .logo-container img {
-    width: 120px;
+    width: 150px;
     transition: transform 0.2s ease-in-out;
 }
 
 .logo-container img:hover {
     transform: scale(1.1);
     filter: drop-shadow(0 0 10px cyan);
+}
+
+@keyframes float {
+    0% { transform: translate(-50%, -50%) translateY(0px); }
+    50% { transform: translate(-50%, -50%) translateY(-10px); }
+    100% { transform: translate(-50%, -50%) translateY(0px); }
 }
 
 nav ul {
@@ -90,7 +104,7 @@ footer {
 <body>
     <header>
         <div class="logo-container">
-            <img src="logo.png" alt="Personal Logo" id="logo">
+            <img src="JPM Logo2.png" alt="Personal Logo" id="logo">
         </div>
         <nav>
             <ul>
