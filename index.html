@@ -36,6 +36,7 @@ header {
     padding: 20px;
     background: rgba(0, 0, 0, 0.5);
     box-shadow: 0 0 10px cyan;
+    position: relative;
 }
 
 nav {
@@ -45,13 +46,17 @@ nav {
 }
 
 .menu-toggle {
-    display: none;
+    display: block;
     background: cyan;
     border: none;
     padding: 10px;
     font-size: 18px;
     cursor: pointer;
     border-radius: 5px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 100;
 }
 
 .nav-links {
@@ -147,9 +152,10 @@ main {
 .logo-container img {
     width: 150px;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
-.logo-container:hover {
+.logo-container:hover, .logo-container:active {
     transform: scale(1.1);
 }
 
@@ -180,17 +186,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
-    
     .nav-links {
         display: none;
         flex-direction: column;
         gap: 10px;
         background: rgba(0, 0, 0, 0.7);
         position: absolute;
-        top: 50px;
+        top: 60px;
         left: 0;
         right: 0;
         text-align: center;
@@ -201,7 +203,6 @@ footer {
         display: flex;
     }
 }
-
 </style>
    <body>
     <header>
