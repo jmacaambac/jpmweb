@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="favjpm.ico">
     <title>My Home Profile</title>
     <style>
         body {
@@ -158,20 +159,21 @@
     <header>
         <button class="menu-toggle">☰</button>
         <ul class="nav-links">
-            <li><a href="#"><img src="about.png" width="30" alt="About"><span class="menu-text">About</span></a></li>
-            <li><a href="#"><img src="skills.png" width="30" alt="Skills"><span class="menu-text">Skills</span></a></li>
-            <li><a href="#"><img src="career.png" width="30" alt="Career"><span class="menu-text">Career</span></a></li>
-            <li><a href="#"><img src="achieve.png" width="30" alt="Achievements"><span class="menu-text">Achieved</span></a></li>
-            <li><a href="#"><img src="gallery.png" width="30" alt="Gallery"><span class="menu-text">Gallery</span></a></li>
-            <li><a href="#"><img src="business.png" width="30" alt="My Business"><span class="menu-text">Business</span></a></li>
-            <li><a href="#"><img src="project.png" width="30" alt="My Projects"><span class="menu-text">Projects</span></a></li>
-            <li><a href="#"><img src="resume.png" width="30" alt="My Online Resume"><span class="menu-text">OL Resume</span></a></li>
+            <li><a href="https://jmacaambac.github.io/aboutme/"><img src="about.png" width="30" alt="About"><span class="menu-text">About</span></a></li>
+            <li><a href="https://jmacaambac.github.io/jpmskills/"><img src="skills.png" width="30" alt="Skills"><span class="menu-text">Skills</span></a></li>
+            <li><a href="https://jmacaambac.github.io/jpmcareer/"><img src="career.png" width="30" alt="Career"><span class="menu-text">Career</span></a></li>
+            <li><a href="https://jmacaambac.github.io/mywebprofile/achievements.html"><img src="achieve.png" width="30" alt="Achievements"><span class="menu-text">Achieved</span></a></li>
+            <li><a href="https://jmacaambac.github.io/jpmgallery/"><img src="gallery.png" width="30" alt="Gallery"><span class="menu-text">Gallery</span></a></li>
+            <li><a href="https://www.raket.ph/raketship/products"><img src="business.png" width="30" alt="My Business"><span class="menu-text">Business</span></a></li>
+            <li><a href="https://drive.google.com/drive/folders/1rFNJBQ2YILCvsLM7S93YuR212mzpdwTe"><img src="project.png" width="30" alt="My Projects"><span class="menu-text">Projects</span></a></li>
+            <li><a href="https://jmacaambac.github.io/resume/"><img src="resume.png" width="30" alt="My Online Resume"><span class="menu-text">OL Resume</span></a></li>
         </ul>
     </header>
 
     <main>
+         <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
         <div class="logo-container">
-            <img src="JPM-Logo-Animate.gif" alt="Logo">
+            <img src="JPM Logo V.3.c.png" alt="Logo">
         </div>
     </main>
         <div class="social-icons">
@@ -196,5 +198,30 @@
             });
         });
     </script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const audio = document.getElementById("bg-music");
+        const muteBtn = document.getElementById("mute-btn");
+        audio.oncanplaythrough = function() {
+            console.log("Audio is ready to play!");
+            audio.muted = false;
+        };
+        muteBtn.addEventListener("click", function () {
+            if (audio) {
+                audio.muted = !audio.muted;
+                if (audio.muted) {
+                    muteBtn.textContent = "🔊";
+                } else {
+                    muteBtn.textContent = "🔇";
+                }
+                console.log("Audio muted status:", audio.muted);
+            }
+        });
+    });
+    </script>
+     <audio id="bg-music" autoplay loop>
+    <source src="dramatic.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+     </audio>
 </body>
 </html>
