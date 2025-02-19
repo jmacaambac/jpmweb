@@ -3,241 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My GitHub Homepage</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-</head>
+    <title>Futuristic Home</title>
     <style>
-body {
-    background: radial-gradient(circle, #1a1a2e, #16213e);
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    justify-content: space-between;
-    overflow: hidden;
-}
+        body {
+            background: radial-gradient(circle, #1a1a2e, #16213e);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            justify-content: space-between;
+            overflow: hidden;
+        }
 
-body::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: url('https://www.transparenttextures.com/patterns/cubes.png');
-    opacity: 0.1;
-    z-index: -1;
-}
+        body::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/cubes.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
 
-header {
-    padding: 20px;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 10px cyan;
-    position: relative;
-}
+        header {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 10px cyan;
+            position: relative;
+        }
 
-nav {
-    display: flex;
-    justify-content: center;
-    position: relative;
-}
+        .menu-toggle {
+            display: block;
+            background: cyan;
+            border: none;
+            padding: 10px;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 100;
+        }
 
-.menu-toggle {
-    display: block;
-    background: cyan;
-    border: none;
-    padding: 10px;
-    font-size: 18px;
-    cursor: pointer;
-    border-radius: 5px;
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    z-index: 100;
-}
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
 
-.nav-links {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 15px;
-    justify-content: center;
-}
+        .nav-links li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            width: 50px;
+            height: 50px;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: all 0.3s ease-in-out;
+            background: rgba(0, 0, 0, 0.5);
+            box-shadow: 0 0 5px cyan;
+        }
 
-.nav-links li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    overflow: hidden;
-    border-radius: 10px;
-    transition: all 0.3s ease-in-out;
-    background: rgba(0, 0, 0, 0.5);
-    box-shadow: 0 0 5px cyan;
-}
+        .nav-links li:hover {
+            width: 150px;
+            background: cyan;
+            box-shadow: 0 0 10px cyan;
+        }
 
-.nav-links li:hover {
-    width: 150px;
-    background: cyan;
-    box-shadow: 0 0 10px cyan;
-}
+        .logo-container {
+            animation: float 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 15px cyan);
+            transition: transform 0.3s ease-in-out;
+        }
 
-.nav-links li a {
-    text-decoration: none;
-    color: cyan;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    transition: color 0.3s ease-in-out;
-}
+        .logo-container img {
+            width: 150px;
+            transition: transform 0.2s ease-in-out;
+            cursor: pointer;
+        }
 
-.nav-links li:hover a {
-    color: black;
-}
+        .logo-container:hover, .logo-container:active {
+            transform: scale(1.1);
+        }
 
-.nav-links li img {
-    width: 30px;
-    height: 30px;
-    transition: opacity 0.3s ease-in-out;
-}
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
 
-.nav-links li:hover img {
-    opacity: 0;
-}
+        footer {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            position: relative;
+            bottom: 0;
+            left: 0;
+        }
 
-.nav-links li span {
-    position: absolute;
-    left: 50px;
-    opacity: 0;
-    white-space: nowrap;
-    color: black;
-    font-weight: bold;
-    transition: opacity 0.3s ease-in-out;
-}
+        .social-icons img {
+            width: 30px;
+            margin: 0 10px;
+            transition: transform 0.3s ease-in-out;
+        }
 
-.nav-links li:hover span {
-    opacity: 1;
-}
+        .social-icons img:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 5px cyan);
+        }
 
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-}
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background: rgba(0, 0, 0, 0.7);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                padding: 10px;
+            }
 
-.logo-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 50vh;
-    position: relative;
-}
-
-.logo-container {
-    animation: float 3s ease-in-out infinite;
-    filter: drop-shadow(0 0 15px cyan);
-    transition: transform 0.3s ease-in-out;
-}
-
-.logo-container img {
-    width: 150px;
-    transition: transform 0.2s ease-in-out;
-    cursor: pointer;
-}
-
-.logo-container:hover, .logo-container:active {
-    transform: scale(1.1);
-}
-
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
-}
-
-footer {
-    width: 100%;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.5);
-    position: relative;
-    bottom: 0;
-    left: 0;
-}
-
-.social-icons img {
-    width: 30px;
-    margin: 0 10px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.social-icons img:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 5px cyan);
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-        flex-direction: column;
-        gap: 10px;
-        background: rgba(0, 0, 0, 0.7);
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        text-align: center;
-        padding: 10px;
-    }
-    
-    .nav-links.active {
-        display: flex;
-    }
-}
-</style>
-   <body>
+            .nav-links.active {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
     <header>
-        <nav>
-            <button class="menu-toggle">☰</button>
-            <ul class="nav-links">
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#career">Career</a></li>
-                <li><a href="#resume">Resume</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#achievements">Achievements</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#business">Business</a></li>
-            </ul>
-        </nav>
+        <button class="menu-toggle">☰</button>
+        <ul class="nav-links">
+            <li><a href="#">🏠</a></li>
+            <li><a href="#">🛠</a></li>
+            <li><a href="#">📜</a></li>
+            <li><a href="#">📂</a></li>
+        </ul>
     </header>
-    
+
     <main>
-        <div class="logo-wrapper">
-            <div class="logo-container">
-                <img src="JPM Logo V.3.c.png" alt="Personal Logo" id="logo">
-            </div>
+        <div class="logo-container">
+            <img src="JPM Logo V.3.c.png" alt="Logo">
         </div>
     </main>
-    
+
     <footer>
         <div class="social-icons">
-            <a href="#"><img src="call-icon.png" alt="Call"></a>
-            <a href="#"><img src="github-icon.png" alt="GitHub"></a>
-            <a href="#"><img src="upwork-icon.png" alt="Upwork"></a>
-            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="linkedin-icon.png" alt="LinkedIn"></a>
-            <a href="#"><img src="email-icon.png" alt="Email"></a>
+            <img src="call-icon.png" alt="Call">
+            <img src="github-icon.png" alt="GitHub">
+            <img src="upwork-icon.png" alt="Upwork">
         </div>
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.querySelector(".menu-toggle");
+            const navLinks = document.querySelector(".nav-links");
+
+            menuToggle.addEventListener("click", function() {
+                navLinks.classList.toggle("active");
+            });
+        });
+    </script>
 </body>
 </html>
