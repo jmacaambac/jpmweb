@@ -105,11 +105,14 @@
             box-shadow: 0 0 10px cyan;
         }
 
-       .logo-container {
+        .logo-container {
             animation: float 3s ease-in-out infinite, glow 2s infinite alternate;
             filter: drop-shadow(0 0 20px cyan);
             transition: transform 0.3s ease-in-out;
-            position: relative;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 1;
         }
 
@@ -124,9 +127,9 @@
         }
 
         @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+            0% { transform: translate(-50%, -50%) translateY(0px); }
+            50% { transform: translate(-50%, -50%) translateY(-10px); }
+            100% { transform: translate(-50%, -50%) translateY(0px); }
         }
 
         @keyframes glow {
@@ -157,22 +160,25 @@
             filter: drop-shadow(0 0 5px cyan);
         }
 
-        @media (max-width: 768px) {
+         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                flex-direction: column;
-                gap: 10px;
-                background: rgba(0, 0, 0, 0.7);
                 position: absolute;
-                top: 60px;
+                top: 50px;
                 left: 0;
-                right: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                flex-direction: column;
+                display: none;
                 text-align: center;
-                padding: 10px;
             }
 
             .nav-links.active {
                 display: flex;
+            }
+
+            .nav-links li {
+                display: block;
+                padding: 10px;
             }
         }
     </style>
