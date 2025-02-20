@@ -6,7 +6,8 @@
     <link rel="icon" type="image/x-icon" href="favjpm.ico">
     <title>My Home Profile</title>
     <style>
-         background: radial-gradient(circle, #1a1a2e, #16213e);
+        body {
+            background: radial-gradient(circle, #1a1a2e, #16213e);
             color: white;
             font-family: Arial, sans-serif;
             text-align: center;
@@ -29,8 +30,7 @@
             opacity: 0.1;
             z-index: -2;
         }
-
-        body::after {
+         body::after {
             content: '';
             position: absolute;
             width: 100%;
@@ -40,21 +40,16 @@
             animation: smoke 10s infinite alternate;
             z-index: -1;
         }
-
-        @keyframes smoke {
+          @keyframes smoke {
             0% { transform: translateY(0px) translateX(0px); }
             50% { transform: translateY(-30px) translateX(20px); }
             100% { transform: translateY(0px) translateX(0px); }
           }
-       header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
+        header {
+            padding: 20px;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 10;
+            box-shadow: 0 0 10px cyan;
+            position: relative;
         }
 
         .menu-toggle {
@@ -114,10 +109,7 @@
             animation: float 3s ease-in-out infinite, glow 2s infinite alternate;
             filter: drop-shadow(0 0 20px cyan);
             transition: transform 0.3s ease-in-out;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            position: relative;
             z-index: 1;
         }
 
@@ -132,9 +124,9 @@
         }
 
         @keyframes float {
-            0% { transform: translate(-50%, -50%) translateY(0px); }
-            50% { transform: translate(-50%, -50%) translateY(-10px); }
-            100% { transform: translate(-50%, -50%) translateY(0px); }
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
 
         @keyframes glow {
@@ -178,10 +170,7 @@
                 text-align: center;
                 padding: 10px;
             }
-            .nav-links li {
-                display: block;
-                padding: 10px;
-            }
+
             .nav-links.active {
                 display: flex;
             }
