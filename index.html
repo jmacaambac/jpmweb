@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="favjpm.ico">
     <title>My Home Profile</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <style>
         body {
             background: radial-gradient(circle, #1a1a2e, #16213e);
@@ -228,6 +229,71 @@ body {
         .home-button:hover {
             background: #880E4F;       
         }
+        .menu-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+            background: #2d2d2d;
+            border-radius: 20px;
+            width: 80px;
+            height: 80px;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .menu-container.expanded {
+            width: 320px;
+            height: 320px;
+            padding: 20px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        .expanded .dot {
+            width: 50px;
+            height: 50px;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            border-radius: 50%;
+            position: relative;
+        }
+        .expanded .dot a {
+            color: white;
+            text-decoration: none;
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .expanded .dot:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
          @media (max-width: 768px) {
             .nav-links {
                 position: absolute;
@@ -258,17 +324,24 @@ body {
 </head>
 <body>
     <header>
-        <button class="menu-toggle">☰</button>
-        <ul class="nav-links">
-            <li><a href="https://jmacaambac.github.io/aboutme/"><img src="about.png" width="30" alt="About"><span class="menu-text">About</span></a></li>
-            <li><a href="https://jmacaambac.github.io/jpmskills/"><img src="skills.png" width="30" alt="Skills"><span class="menu-text">Skills</span></a></li>
-            <li><a href="https://jmacaambac.github.io/jpmcareer/"><img src="career.png" width="30" alt="Career"><span class="menu-text">Career</span></a></li>
-            <li><a href="https://jmacaambac.github.io/mywebprofile/achievements.html"><img src="achieve.png" width="30" alt="Achievements"><span class="menu-text">Achieved</span></a></li>
-            <li><a href="https://jmacaambac.github.io/jpmgallery/"><img src="gallery.png" width="30" alt="Gallery"><span class="menu-text">Gallery</span></a></li>
-            <li><a href="https://www.raket.ph/raketship/products"><img src="business.png" width="30" alt="My Business"><span class="menu-text">Business</span></a></li>
-            <li><a href="https://drive.google.com/drive/folders/1rFNJBQ2YILCvsLM7S93YuR212mzpdwTe"><img src="project.png" width="30" alt="My Projects"><span class="menu-text">Projects</span></a></li>
-            <li><a href="https://jmacaambac.github.io/resume/"><img src="resume.png" width="30" alt="My Online Resume"><span class="menu-text">OL Resume</span></a></li>
-        </ul>
+         <div class="menu-container" onclick="toggleMenu()">
+        <div class="dot"><a href="#"><img src="about.png" alt="About"></a><span class="tooltip">About</span></div>
+        <div class="dot"><a href="#"><img src="skills.png" alt="Skills"></a><span class="tooltip">Skills</span></div>
+        <div class="dot"><a href="#"><img src="career.png" alt="Career"></a><span class="tooltip">Career</span></div>
+        <div class="dot"><a href="#"><img src="achieve.png" alt="Achievements"></a><span class="tooltip">Achievements</span></div>
+        <div class="dot"><a href="#"><img src="gallery.png" alt="Gallery"></a><span class="tooltip">Gallery</span></div>
+        <div class="dot"><a href="#"><img src="business.png" alt="Business"></a><span class="tooltip">Business</span></div>
+        <div class="dot"><a href="#"><img src="project.png" alt="Projects"></i></a><span class="tooltip">Projects</span></div>
+        <div class="dot"><a href="#"><img src="resume.png" alt="Online Resume"></a><span class="tooltip">Online Resume</span></div>
+        <div class="dot"><a href="#"><img src="contact me.png" alt="Call me"></a><span class="tooltip">Call me</span></div>
+        <div class="dot"><a href="#"><img src="github.png" alt="Github"></a><span class="tooltip">Github</span></div>
+        <div class="dot"><a href="#"><img src="upwork.png" alt="Upwork"></a><span class="tooltip">Upwork</span></div>
+        <div class="dot"><a href="#"><img src="facebook.png" alt="Facebook"></a><span class="tooltip">Facebook</span></div>
+        <div class="dot"><a href="#"><img src="linkedin.png" alt="LinkedIn"></a><span class="tooltip">LinkedIn</span></div>
+        <div class="dot"><a href="#"><img src="email.png" alt="Email me"></a><span class="tooltip">Email me</span></div>
+        <div class="dot"><a href="#"><img src="tiktok.png" alt="Tiktok"></a><span class="tooltip">Tiktok</span></div>
+        <div class="dot"><a href="#"><img src="insta.png" alt="Instagram"></a><span class="tooltip">Instagram</span></div>
+    </div>
                 <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
     </header>
 
@@ -284,22 +357,18 @@ body {
         </div>
     </div>
     </main>
-
-        <div class="social-icons">
-            <a href="tel:+639666096060"><img src="contact me.png" alt="Call Me" style="margin-right:20px;"></a>
-            <a href="https://github.com/jmacaambac"><img src="github.png" alt="GitHub Profile" style="margin-right:20px;"></a>
-            <a href="https://www.upwork.com/freelancers/~0158ef1042186d12ba?mp_source=share"><img src="upwork.png" alt="Upwork Account" style="margin-right:20px;"></a>
-            <a href="https://www.facebook.com/JadePagalaranMacaambac"><img src="facebook.png" alt="My Facebook" style="margin-right:20px;"></a>
-            <a href="https://www.linkedin.com/in/jademacaambac?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BrMieWdntQ1GkHTaZgXDnyA%3D%3D"><img src="linkedin.png" alt="My LinkedIn" style="margin-right:20px;"></a>
-            <a href="mailto:jade.macaambac@outlook.com"><img src="email.png" alt="Send Me Email"></a>
-        </div>
             <div>
             <a href="https://jmacaambac.github.io/mywebprofile/" alt="classic" style="color: cyan; font-size: 12px;" class="home-button">BACK to CLASSIC LOOKS!</a>
             </div>
     <footer>
         <div class="footer">&copy; 2025 JADE MACAAMBAC. All Rights Reserved.</div>
     </footer>
-
+    <script>
+        function toggleMenu() {
+            const menu = document.querySelector('.menu-container');
+            menu.classList.toggle('expanded');
+        }
+    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const menuToggle = document.querySelector(".menu-toggle");
@@ -374,6 +443,7 @@ const update = () => {
 setInterval(update, 1000 / 60);
 
 </script>
+    
      <audio id="bg-music" autoplay loop>
     <source src="binarycode.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
