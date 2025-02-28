@@ -46,10 +46,76 @@
             100% { transform: translateY(0px) translateX(0px); }
           }
         header {
+            display: flex;
             padding: 30px;
             background: rgba(0, 0, 0, 0.5);
             box-shadow: 0 0 10px cyan;
             position: relative;
+        }
+            .menu-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 5px;
+            justify-content: center;
+            align-items: center;
+            background: #2d2d2d;
+            border-radius: 20px;
+            width: 80px;
+            height: 80px;
+            padding: 10px;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .menu-container.expanded {
+            width: 320px;
+            height: 320px;
+            padding: 20px;
+        }
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+        }
+        .expanded .dot {
+            width: 50px;
+            height: 50px;
+            background: #444;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            border-radius: 50%;
+            position: relative;
+        }
+        .expanded .dot a {
+            color: white;
+            text-decoration: none;
+        }
+        .tooltip {
+            visibility: hidden;
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 5px 10px;
+            border-radius: 5px;
+            position: absolute;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+        .expanded .dot:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
         }
   @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap");
 body {
@@ -229,71 +295,7 @@ body {
         .home-button:hover {
             background: #880E4F;       
         }
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 5px;
-            justify-content: center;
-            align-items: center;
-            background: #2d2d2d;
-            border-radius: 20px;
-            width: 80px;
-            height: 80px;
-            padding: 10px;
-            transition: all 0.3s ease-in-out;
-            overflow: hidden;
-            cursor: pointer;
-            position: relative;
-        }
-        .menu-container.expanded {
-            width: 320px;
-            height: 320px;
-            padding: 20px;
-        }
-        .dot {
-            width: 10px;
-            height: 10px;
-            background: white;
-            border-radius: 50%;
-            transition: all 0.3s ease-in-out;
-            position: relative;
-        }
-        .expanded .dot {
-            width: 50px;
-            height: 50px;
-            background: #444;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 20px;
-            border-radius: 50%;
-            position: relative;
-        }
-        .expanded .dot a {
-            color: white;
-            text-decoration: none;
-        }
-        .tooltip {
-            visibility: hidden;
-            background-color: black;
-            color: #fff;
-            text-align: center;
-            padding: 5px 10px;
-            border-radius: 5px;
-            position: absolute;
-            bottom: 60px;
-            left: 50%;
-            transform: translateX(-50%);
-            opacity: 0;
-            transition: opacity 0.3s;
-            font-size: 14px;
-            white-space: nowrap;
-        }
-        .expanded .dot:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
+    
          @media (max-width: 768px) {
             .nav-links {
                 position: absolute;
@@ -325,22 +327,22 @@ body {
 <body>
     <header>
          <div class="menu-container" onclick="toggleMenu()">
-        <div class="dot"><a href="#"><img src="about.png" alt="About"></a><span class="tooltip">About</span></div>
-        <div class="dot"><a href="#"><img src="skills.png" alt="Skills"></a><span class="tooltip">Skills</span></div>
-        <div class="dot"><a href="#"><img src="career.png" alt="Career"></a><span class="tooltip">Career</span></div>
-        <div class="dot"><a href="#"><img src="achieve.png" alt="Achievements"></a><span class="tooltip">Achievements</span></div>
-        <div class="dot"><a href="#"><img src="gallery.png" alt="Gallery"></a><span class="tooltip">Gallery</span></div>
-        <div class="dot"><a href="#"><img src="business.png" alt="Business"></a><span class="tooltip">Business</span></div>
-        <div class="dot"><a href="#"><img src="project.png" alt="Projects"></i></a><span class="tooltip">Projects</span></div>
-        <div class="dot"><a href="#"><img src="resume.png" alt="Online Resume"></a><span class="tooltip">Online Resume</span></div>
-        <div class="dot"><a href="#"><img src="contact me.png" alt="Call me"></a><span class="tooltip">Call me</span></div>
-        <div class="dot"><a href="#"><img src="github.png" alt="Github"></a><span class="tooltip">Github</span></div>
-        <div class="dot"><a href="#"><img src="upwork.png" alt="Upwork"></a><span class="tooltip">Upwork</span></div>
-        <div class="dot"><a href="#"><img src="facebook.png" alt="Facebook"></a><span class="tooltip">Facebook</span></div>
-        <div class="dot"><a href="#"><img src="linkedin.png" alt="LinkedIn"></a><span class="tooltip">LinkedIn</span></div>
-        <div class="dot"><a href="#"><img src="email.png" alt="Email me"></a><span class="tooltip">Email me</span></div>
-        <div class="dot"><a href="#"><img src="tiktok.png" alt="Tiktok"></a><span class="tooltip">Tiktok</span></div>
-        <div class="dot"><a href="#"><img src="insta.png" alt="Instagram"></a><span class="tooltip">Instagram</span></div>
+        <div class="dot"><a href="#"><img src="about.png" style="width: 30px;" alt="About"></a><span class="tooltip">About</span></div>
+        <div class="dot"><a href="#"><img src="skills.png" style="width: 30px;" alt="Skills"></a><span class="tooltip">Skills</span></div>
+        <div class="dot"><a href="#"><img src="career.png" style="width: 30px;" alt="Career"></a><span class="tooltip">Career</span></div>
+        <div class="dot"><a href="#"><img src="achieve.png" style="width: 30px;" alt="Achievements"></a><span class="tooltip">Achievements</span></div>
+        <div class="dot"><a href="#"><img src="gallery.png" style="width: 30px;" alt="Gallery"></a><span class="tooltip">Gallery</span></div>
+        <div class="dot"><a href="#"><img src="business.png" style="width: 30px;" alt="Business"></a><span class="tooltip">Business</span></div>
+        <div class="dot"><a href="#"><img src="project.png" style="width: 30px;" alt="Projects"></i></a><span class="tooltip">Projects</span></div>
+        <div class="dot"><a href="#"><img src="resume.png" style="width: 30px;" alt="Online Resume"></a><span class="tooltip">Online Resume</span></div>
+        <div class="dot"><a href="#"><img src="contact me.png" style="width: 30px;" alt="Call me"></a><span class="tooltip">Call me</span></div>
+        <div class="dot"><a href="#"><img src="github.png" style="width: 30px;" alt="Github"></a><span class="tooltip">Github</span></div>
+        <div class="dot"><a href="#"><img src="upwork.png" style="width: 30px;" alt="Upwork"></a><span class="tooltip">Upwork</span></div>
+        <div class="dot"><a href="#"><img src="facebook.png" style="width: 30px;" alt="Facebook"></a><span class="tooltip">Facebook</span></div>
+        <div class="dot"><a href="#"><img src="linkedin.png" style="width: 30px;" alt="LinkedIn"></a><span class="tooltip">LinkedIn</span></div>
+        <div class="dot"><a href="#"><img src="email.png" style="width: 30px;" alt="Email me"></a><span class="tooltip">Email me</span></div>
+        <div class="dot"><a href="#"><img src="tiktok.png" style="width: 30px;" alt="Tiktok"></a><span class="tooltip">Tiktok</span></div>
+        <div class="dot"><a href="#"><img src="insta.png" style="width: 30px;" alt="Instagram"></a><span class="tooltip">Instagram</span></div>
     </div>
                 <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
     </header>
