@@ -53,7 +53,7 @@
             box-shadow: 0 0 10px cyan;
             position: relative;
         }
-            .menu-container {
+        .menu-container {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 5px;
@@ -82,12 +82,12 @@
             transition: all 0.3s ease-in-out;
             position: relative;
         }
-        .dot i {
+        .dot a {
             visibility: hidden;
             opacity: 0;
             transition: opacity 0.3s ease-in-out;
         }
-        .expanded .dot i {
+        .expanded .dot a {
             visibility: visible;
             opacity: 1;
         }
@@ -102,10 +102,6 @@
             font-size: 20px;
             border-radius: 50%;
             position: relative;
-        }
-        .expanded .dot a {
-            color: white;
-            text-decoration: none;
         }
         .tooltip {
             visibility: hidden;
