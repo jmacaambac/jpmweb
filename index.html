@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Jade Macaambac Portfolio</title>
+  <meta http-equiv="refresh" content="0; url=https://jmacaambac.github.io/myprofile/">
+  <title>Redirecting to Jade Macaambac Portfolio</title>
   <link rel="manifest" href="/myprofile/manifest.json">
   <meta name="theme-color" content="#0F172A">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="Jade Macaambac's Professional Portfolio">
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👤</text></svg>">
-  <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👤</text></svg>">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👤%3C/text%3E%3C/svg%3E">
+  <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👤%3C/text%3E%3C/svg%3E">
+  <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/x-icon" href="favjpm.ico">
     <title>My Home Profile</title>
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
@@ -460,27 +462,17 @@ setInterval(update, 1000 / 60);
 
 </script>
     <script>
-   if ('serviceWorker' in navigator) {
+  if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/myprofile/sw.js', {
-          scope: '/myprofile/'
-        .then(registration => {
-          console.log('ServiceWorker registration successful:', registration);
-             registration.addEventListener('activate', () => {
-            console.log('Service worker activated');
-          });
-        })
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful:', registration);
+          })
           .catch(error => {
-          console.error('ServiceWorker registration failed:', error);
-        });
-            window.addEventListener('beforeinstallprompt', (e) => {
-          console.log('Install prompt can be shown');
-         
-          e.prompt();
-    });
-  } else {
-      console.log('Service workers are not supported');
-   }
+            console.error('ServiceWorker registration failed:', error);
+          });
+      });
+    }
 </script>
      <audio id="bg-music" autoplay loop>
     <source src="binarycode.mp3" type="audio/mpeg">
