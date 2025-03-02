@@ -1,10 +1,9 @@
 javascript
 const CACHE_NAME = 'portfolio-v1';
-const BASE_PATH = '/myprofile';
 const urlsToCache = [
- `${BASE_PATH}/`,
-  `${BASE_PATH}/index.html`,
-  `${BASE_PATH}/manifest.json`
+ '.',
+  'index.html',
+  'manifest.json'
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -41,7 +40,7 @@ self.addEventListener('fetch', (event) => {
       })
     .catch(() => {
             if (event.request.mode === 'navigate') {
-             return caches.match(`${BASE_PATH}/`);
+             return caches.match('.');
             }
       })
   );
