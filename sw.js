@@ -1,4 +1,4 @@
-```javascript
+javascript
 const CACHE_NAME = 'portfolio-v1';
 const WEBSITE_URL = '/myprofile/';
 
@@ -44,4 +44,3 @@ self.addEventListener('activate', (event) => {
     })
   );
 });
-```
