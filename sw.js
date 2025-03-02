@@ -2,7 +2,6 @@ javascript
 const CACHE_NAME = 'portfolio-v1';
 const WEBSITE_URL = '/myprofile/';
 
-// Cache the main website URL and its assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME)
@@ -12,7 +11,6 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// Handle fetch requests
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     fetch(event.request)
@@ -30,7 +28,6 @@ self.addEventListener('fetch', (event) => {
   );
 });
 
-// Clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
