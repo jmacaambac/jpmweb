@@ -5,13 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta http-equiv="refresh" content="0; url=https://jmacaambac.github.io/myprofile/">
   <title>Redirecting to Jade Macaambac Portfolio</title>
-  <link rel="manifest" href="/myprofile/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#0F172A">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="description" content="Jade Macaambac's Professional Portfolio">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👤%3C/text%3E%3C/svg%3E">
   <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E👤%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" crossorigin="anonymous">
   <link rel="manifest" href="manifest.json">
   <link rel="icon" type="image/x-icon" href="favjpm.ico">
     <title>My Home Profile</title>
@@ -360,7 +361,7 @@ body {
         <div class="dot"><a href="https://www.tiktok.com/@jade.mac.i.am.back?_t=ZS-8uIXMumbhdH&_r=1"><img src="tiktok.png" style="width: 30px;" alt="Tiktok"></a><span class="tooltip">Tiktok</span></div>
         <div class="dot"><a href="https://www.instagram.com/jade.mac.im.back?igsh=ZnoxOG5pdDl2cjE="><img src="insta.png" style="width: 30px;" alt="Instagram"></a><span class="tooltip">Instagram</span></div>
     </div>
-               
+               <div id="root"></div> 
     </header>
  <span id="mute-btn" style="cursor: pointer; font-size: 24px;">🔇</span>
     <main>
@@ -464,15 +465,14 @@ setInterval(update, 1000 / 60);
     <script>
   if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-         navigator.serviceWorker.register('/myprofile/sw.js', {
-          scope: '/myprofile/'
-        })
-        .then(registration => {
-          console.log('ServiceWorker registration successful:', registration);
-        })
-        .catch(error => {
-          console.error('ServiceWorker registration failed:', error);
-        });
+        
+        navigator.serviceWorker.register('sw.js')
+          .then(registration => {
+            console.log('ServiceWorker registration successful:', registration);
+          })
+          .catch(error => {
+            console.error('ServiceWorker registration failed:', error);
+          });
       });
       
       let deferredPrompt;
