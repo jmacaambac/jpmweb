@@ -1,11 +1,9 @@
 javascript
 const CACHE_NAME = 'portfolio-v1';
-const WEBSITE_URL = 'https://jmacaambac.github.io/myprofile/';
 const urlsToCache = [
-  WEBSITE_URL,
+ '.',
   'index.html',
   'manifest.json',
-  
 ];
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -13,9 +11,6 @@ self.addEventListener('install', (event) => {
       .then((cache) => {
         console.log('Cache opened');
         return cache.addAll(urlsToCache);
-      })
-      .catch((error) => {
-        console.error('Cache failed:', error);
       })
   );
 });
@@ -32,7 +27,7 @@ self.addEventListener('fetch', (event) => {
         const fetchRequest = event.request.clone();
         return fetch(fetchRequest)
           .then((response) => {
-            if (!response || response.status !== 200 || response.type !== 'basic') {
+            if (!response || response.status !== 200) {
               return response;
             }
             const responseToCache = response.clone();
@@ -44,10 +39,9 @@ self.addEventListener('fetch', (event) => {
           });
       })
     .catch(() => {
-        
-        if (event.request.url === WEBSITE_URL) {
-          return caches.match(WEBSITE_URL);
-        }
+            if (event.request.mode === 'navigate') {
+              return caches.match('.');
+            }
       })
   );
 });
@@ -58,7 +52,6 @@ self.addEventListener('activate', (event) => {
       return Promise.all(
         cacheNames.map((cacheName) => {
           if (cacheName !== CACHE_NAME) {
-            console.log('Deleting old cache:', cacheName);
             return caches.delete(cacheName);
           }
         })
