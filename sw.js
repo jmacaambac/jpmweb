@@ -1,6 +1,6 @@
 javascript
 const CACHE_NAME = 'portfolio-v1';
-const WEBSITE_URL = '/myprofile/';
+const WEBSITE_URL = 'https://jmacaambac.github.io/myprofile/';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -20,7 +20,7 @@ self.addEventListener('fetch', (event) => {
             if (response) {
               return response;
             }
-            if (event.request.url.includes(WEBSITE_URL)) {
+            if (event.request.url === WEBSITE_URL) {
               return caches.match(WEBSITE_URL);
             }
           });
