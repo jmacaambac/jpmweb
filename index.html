@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="manifest" href="/myprofile/manifest.json" />
+<meta name="theme-color" content="#0F172A" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -451,7 +455,19 @@ const update = () => {
 setInterval(update, 1000 / 60);
 
 </script>
-    
+    <script>
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('/myprofile/sw.js')
+        .then(registration => {
+          console.log('SW registered:', registration);
+        })
+        .catch(error => {
+          console.log('SW registration failed:', error);
+        });
+    });
+  }
+</script>
      <audio id="bg-music" autoplay loop>
     <source src="binarycode.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
