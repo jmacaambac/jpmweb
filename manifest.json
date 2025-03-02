@@ -3,12 +3,12 @@ json
   "name": "Jade Macaambac Portfolio",
   "short_name": "Jade Portfolio",
   "description": "Jade Macaambac's Professional Portfolio",
-   "start_url": ".",
+  "start_url": "/myprofile/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0F172A",
   "orientation": "portrait",
-  "scope": ".",
+  "scope": "/myprofile/",
   "icons": [
     {
       "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👤</text></svg>",
