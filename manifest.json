@@ -21,5 +21,14 @@
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
-  ]
+   ],
+  "shortcuts": [
+    {
+      "name": "Home",
+      "url": "https://jmacaambac.github.io/myprofile/",
+      "description": "View my portfolio"
+    }
+  ],
+  "categories": ["portfolio", "professional"],
+  "prefer_related_applications": false
 }
