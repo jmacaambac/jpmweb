@@ -1,4 +1,5 @@
 const CACHE_NAME = 'portfolio-v1';
+const WEBSITE_URL = 'https://jmacaambac.github.io/myprofile/';
 
 // Files to cache
 const urlsToCache = [
@@ -13,9 +14,9 @@ self.addEventListener('install', (event) => {
     caches.open(CACHE_NAME)
       .then((cache) => {
         console.log('Cache opened');
-        return cache.addAll(urlsToCache);
-      })
-  );
+         if (event.request.url === WEBSITE_URL) {
+        return caches.match(WEBSITE_URL);
+      }
 });
 
 // Fetch event - serve from cache, fallback to network
